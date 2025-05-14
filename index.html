@@ -16,9 +16,8 @@
       color: #e0e0e0;
     }
 
-    /* Header menu minimalis */
     header {
-      background-color: #1e1e1e;
+      background-color: #1f1f1f;
       box-shadow: 0 2px 4px rgba(0,0,0,0.5);
       padding: 10px 30px;
       display: flex;
@@ -37,7 +36,7 @@
 
     nav a {
       margin-left: 25px;
-      color: #dddddd;
+      color: #e0e0e0;
       text-decoration: none;
       font-weight: 500;
       font-size: 15px;
@@ -54,25 +53,32 @@
     }
 
     h2 {
-      color: #90caf9;
-      border-bottom: 2px solid #333;
+      color: #ffffff;
+      border-bottom: 2px solid #444;
       padding-bottom: 10px;
+    }
+
+    /* Produk slider container */
+    .produk-slider {
+      position: relative;
+      overflow: hidden;
     }
 
     .produk-container {
       display: flex;
-      flex-wrap: wrap;
       gap: 20px;
-      margin-top: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px 0;
     }
 
     .produk {
+      flex: 0 0 250px;
       border: 1px solid #333;
       border-radius: 10px;
       padding: 10px;
-      width: 250px;
       background-color: #1e1e1e;
-      color: #ffffff;
+      min-width: 250px;
     }
 
     .produk img {
@@ -81,22 +87,34 @@
       border-radius: 6px;
     }
 
-    ul {
-      padding-left: 20px;
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 100;
     }
 
-    .faq-item {
-      margin-bottom: 20px;
+    .slider-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .faq-item h4 {
-      margin: 0 0 5px;
-      color: #64b5f6;
+    .slider-left {
+      left: 0;
+    }
+
+    .slider-right {
+      right: 0;
     }
 
     footer {
-      background-color: #0d0d0d;
-      color: #cccccc;
+      background-color: #1f1f1f;
+      color: #e0e0e0;
       text-align: center;
       padding: 20px;
     }
@@ -119,7 +137,7 @@
 
 <section id="beranda">
   <h2>Beranda</h2>
-  <p>Selamat datang di Pasar Online — tempat belanja online terpercaya untuk kebutuhan rumah tangga dan kantor.</p>
+  <p>Selamat datang di Marketplace — tempat belanja online terpercaya untuk kebutuhan rumah tangga dan kantor.</p>
 </section>
 
 <section id="tentang">
@@ -129,22 +147,36 @@
 
 <section id="produk">
   <h2>Produk Kami</h2>
-  <div class="produk-container">
-    <div class="produk">
-      <img src="Kursi.jpeg" alt="Kursi">
-      <h3>Kursi Ergonomis</h3>
-      <p>Kursi yang dirancang untuk mendukung postur tubuh yang sehat dan mengurangi tekanan pada tubuh saat duduk dalam jangka waktu yang lama cocok untuk kerja dan bersantai.</p>
+  <div class="produk-slider">
+    <button class="slider-button slider-left" onclick="scrollProduk(-1)">&#8592;</button>
+    <div class="produk-container" id="produkList">
+      <div class="produk">
+        <img src="Kursi.jpeg" alt="Kursi">
+        <h3>Kursi Ergonomis</h3>
+        <p>Kursi yang mendukung postur tubuh sehat, cocok untuk kerja dan bersantai.</p>
+      </div>
+      <div class="produk">
+        <img src="Meja.jpeg" alt="Meja">
+        <h3>Meja Kerja</h3>
+        <p>Meja kerja dengan 2 laci, cocok untuk kantor atau rumah.</p>
+      </div>
+      <div class="produk">
+        <img src="Sofa.jpeg" alt="Sofa">
+        <h3>Sofa Minimalis</h3>
+        <p>Sofa nyaman untuk ruang tamu, empuk dan stylish.</p>
+      </div>
+      <div class="produk">
+        <img src="Lemari.jpeg" alt="Lemari">
+        <h3>Lemari Serbaguna</h3>
+        <p>Lemari kayu minimalis untuk menyimpan barang rumah tangga.</p>
+      </div>
+      <div class="produk">
+        <img src="Rak.jpeg" alt="Rak">
+        <h3>Rak Dinding</h3>
+        <p>Rak tempel elegan, ideal untuk hiasan dan buku.</p>
+      </div>
     </div>
-    <div class="produk">
-      <img src="Meja.jpeg" alt="Meja">
-      <h3>Meja Kerja</h3>
-      <p>Meja yang dirancang untuk menyelesaikan pekerjaan, baik di kantor maupun rumah. Dilengkapi dengan 2 laci untuk menyimpan barang penting</p>
-    </div>
-    <div class="produk">
-      <img src="Sofa.jpeg" alt="Sofa">
-      <h3>Sofa Minimalis</h3>
-      <p>Furnitur yang berfungsi sebagai tempat duduk yang nyaman, biasanya dilengkapi dengan bantalan yang empuk yang cocok untuk ruang tamu di rumah tangga maupun di kantor.</p>
-    </div>
+    <button class="slider-button slider-right" onclick="scrollProduk(1)">&#8594;</button>
   </div>
 </section>
 
@@ -188,8 +220,19 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 PasarOnline. All rights reserved.</p>
+  <p>&copy; 2025 Marketplace. All rights reserved.</p>
 </footer>
+
+<script>
+  function scrollProduk(direction) {
+    const container = document.getElementById('produkList');
+    const scrollAmount = 270; // bisa disesuaikan
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
 
 </body>
 </html>
