@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PasarOnline</title>
+  <title>Marketplace</title>
   <style>
     html {
       scroll-behavior: smooth;
@@ -12,28 +12,36 @@
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
-      line-height: 1.6;
     }
 
+    /* Header menu minimalis */
     header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
     }
 
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
     }
 
     nav a {
-      color: white;
+      margin-left: 25px;
+      color: #111;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #0077cc;
     }
 
     section {
@@ -73,50 +81,45 @@
       padding-left: 20px;
     }
 
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
     .faq-item {
       margin-bottom: 20px;
     }
 
     .faq-item h4 {
       margin: 0 0 5px;
-      color: #34495e;
     }
 
-    .faq-item p {
-      margin: 0;
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>PasarOnline</h1>
+  <div class="logo">Marketplace</div>
   <nav>
-    <a href="#beranda">Beranda</a>
-    <a href="#tentang">Tentang Kami</a>
-    <a href="#produk">Produk Kami</a>
-    <a href="#layanan">Layanan</a>
-    <a href="#testimoni">Testimoni</a>
+    <a href="#beranda">Home</a>
+    <a href="#tentang">About Us</a>
+    <a href="#produk">Our Products</a>
+    <a href="#layanan">Categories</a>
+    <a href="#testimoni">Testimonials</a>
     <a href="#faq">FAQ</a>
-    <a href="#kontak">Kontak</a>
+    <a href="#kontak">Contact</a>
   </nav>
 </header>
 
 <section id="beranda">
   <h2>Beranda</h2>
-  <p>Selamat datang di PasarOnline — marketplace terpercaya untuk kebutuhan rumah tangga Anda!</p>
+  <p>Selamat datang di Marketplace — tempat belanja online terpercaya untuk kebutuhan rumah tangga dan kantor.</p>
 </section>
 
 <section id="tentang">
   <h2>Tentang Kami</h2>
-  <p>PasarOnline menyediakan perabot rumah berkualitas dengan harga bersaing. Kami mengutamakan kepuasan pelanggan dan pengiriman cepat ke seluruh Indonesia.</p>
+  <p>Kami menyediakan berbagai produk rumah tangga dan kantor yang berkualitas tinggi dengan pelayanan terbaik dan harga terjangkau.</p>
 </section>
 
 <section id="produk">
@@ -130,51 +133,52 @@
     <div class="produk">
       <img src="Meja.jpeg" alt="Meja">
       <h3>Meja Kerja</h3>
-      <p>perabot yang memiliki permukaan datar dan penyangga kaki yang digunakan untuk menyelesaikan pekerjaan, baik di kantor, rumah, atau tempat lain.</p>
+      <p>Perabot yang memiliki permukaan datar dan penyangga kaki yang digunakan untuk menyelesaikan pekerjaan, baik di kantor, rumah, atau tempat lain.</p>
     </div>
   </div>
 </section>
 
 <section id="layanan">
-  <h2>Layanan</h2>
+  <h2>Kategori & Layanan</h2>
   <ul>
-    <li>Pengiriman cepat dan aman</li>
+    <li>Perabot Rumah dan Kantor</li>
     <li>Garansi hingga 1 tahun</li>
-    <li>Layanan pelanggan 24 jam</li>
+    <li>Pengiriman Cepat & Aman</li>
+    <li>Dukungan Pelanggan 24/7</li>
   </ul>
 </section>
 
 <section id="testimoni">
-  <h2>Testimoni Pelanggan</h2>
-  <p>"Pelayanan cepat dan barang sesuai deskripsi. Top!" — Sari, Jakarta</p>
-  <p>"Sangat puas belanja di sini. Terima kasih PasarOnline!" — Ahmad, Surabaya</p>
+  <h2>Testimoni</h2>
+  <p>"Barang sesuai ekspektasi. Pengiriman cepat!" — Lina, Yogyakarta</p>
+  <p>"Sangat puas, kualitas oke banget!" — Budi, Medan</p>
 </section>
 
 <section id="faq">
-  <h2>FAQ (Pertanyaan Umum)</h2>
+  <h2>FAQ</h2>
   <div class="faq-item">
-    <h4>Bagaimana cara memesan produk?</h4>
-    <p>Silakan hubungi kami melalui kontak di bawah atau tombol beli yang tersedia di halaman produk (segera hadir).</p>
+    <h4>Bagaimana cara memesan?</h4>
+    <p>Silakan hubungi kami via kontak atau tombol pesan di produk (akan segera tersedia).</p>
   </div>
   <div class="faq-item">
-    <h4>Apakah produk bergaransi?</h4>
-    <p>Ya, semua produk kami memiliki garansi resmi hingga 1 tahun.</p>
+    <h4>Apakah tersedia garansi?</h4>
+    <p>Ya, semua produk memiliki garansi hingga 1 tahun tergantung jenis barang.</p>
   </div>
   <div class="faq-item">
-    <h4>Apakah bisa COD?</h4>
-    <p>Untuk saat ini kami belum menyediakan layanan COD. Silakan gunakan metode transfer bank atau e-wallet.</p>
+    <h4>Apakah bisa bayar di tempat?</h4>
+    <p>Saat ini belum tersedia COD. Gunakan transfer bank atau dompet digital.</p>
   </div>
 </section>
 
 <section id="kontak">
-  <h2>Kontak Kami</h2>
-  <p>📧 Email: info@pasaronline.com</p>
-  <p>📞 Telepon: +62 812 3456 7890</p>
-  <p>📍 Alamat: Jl. Teuku Nyak Arief, Banda Aceh</p>
+  <h2>Kontak</h2>
+  <p>Email: info@marketplace.com</p>
+  <p>Telepon: +62 812-3456-7890</p>
+  <p>Alamat: Jl. Teuku Nyak Arief, Banda Aceh</p>
 </section>
 
 <footer>
-  <p>&copy; 2025 PasarOnline. Semua hak dilindungi.</p>
+  <p>&copy; 2025 Marketplace. All rights reserved.</p>
 </footer>
 
 </body>
